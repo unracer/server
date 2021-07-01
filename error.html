@@ -1,0 +1,48 @@
+<head>
+	<meta charset="utf-8">
+	<title>lol</title>
+</head>
+
+<style type="text/css">
+	#content {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		position: absolute;
+		display: flex;
+	}
+	#msg {
+		color: #fff;
+		width: 20%;
+		height: 20%;
+		margin: auto;
+	}
+</style>
+
+<body bgcolor="d0f">
+	<div id="content">
+		<div id="msg"></div>
+	</div>
+
+	<script type="text/javascript">
+		getDataFromUrl();
+
+		function getDataFromUrl(){
+			var url = window.location.href;
+			let args = url.split("=");
+			var nickname = args[1];
+
+			if (nickname == null){s
+				nickname = "noname";
+			}
+			var str = nickname + ", " + "ahah, did you seriously think it was that simple? go to our application Don't wait for news here :\ good luck";
+			document.getElementById("msg").innerHTML += str;
+		}
+	</script>
+
+</body>
+<!-- 
+взять парметры из юрл 
+поместить их в див
+-->

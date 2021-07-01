@@ -1,0 +1,169 @@
+<head>
+	<meta charset="utf-8">
+	<title>decoders</title>
+</head>
+
+	<style type="text/css">
+		#topPanel {
+			background-color: #0a0a0a;
+			color: #ffffff8c;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+		#sideBar {
+			background-color: #050505ec;
+			color: #ffffff8c;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 15%;
+			height: 100%;
+		}
+		#rightPanel {
+
+		}
+		#boottomPanel {
+			background-color: #0a0a0a;
+			color: #ffffff8c;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+
+		#content {
+			background-color: #171717ec;
+			color: #ffffff8c;
+			position: absolute;
+			top: 0%;
+			left: 15%;
+			width: 85%;
+			height: 100%;
+			bottom: 5%;
+		}
+		#li_ofsidebar {
+			margin-left: 2%;
+		}
+		#mainPanel {
+			text-align: center;
+		}
+		#myInp {
+			background-color: #171717ec;
+			color: #ffffff8c;
+			border: 0px;
+			text-align: center;
+		}
+		#btmSub {
+			position: absolute; 
+			left: -100%
+		}
+
+		#topPanel { z-index: 1; }
+		#bottomPanel { z-index: 1; }
+	</style>
+
+
+
+<body >
+	<!-- TOP PANEL -->
+	<div id="topPanel">
+		this is top pannel
+	</div>
+
+	<!-- SIDE BAR -->
+	<div id="sideBar">
+		<h3 align="center" class='category' >category:</h3>
+		<li id="li_ofsidebar">we</li>
+		<li id="li_ofsidebar">want</li>
+		<li id="li_ofsidebar">world</li>
+		<li id="li_ofsidebar">at</li>
+		<li id="li_ofsidebar">the</li>
+		<li id="li_ofsidebar">world</li>
+		<li id="li_ofsidebar">will be</li>
+		<li id="li_ofsidebar">world</li>
+		<li id="li_ofsidebar">at</li>
+		<li id="li_ofsidebar">the</li>
+		<li id="li_ofsidebar">world</li>
+	</div>
+
+	<!-- MAIN PANEL -->
+	<div id="content">
+		<div id="mainPanel">
+			<h2>hello my dir friend</h2>
+			<h2>i want invite you in the our group</h2>
+			<h3>bot if you dont want we come to you ^_^</h3>
+			<h4>enter your real age</h4>
+			<h5>and you can get more chance</h5>
+
+			<form name="myForm" action="">
+				<input id="inpNick" type="text" placeholder="nick" size="20">
+				<input id="inpAge" type="text/submit" placeholder="age" size="2">
+				<button id="btmSub" type="submit" onclick="return false" ></button>
+			</form>
+		</div>
+	</div>
+
+	<!-- SUPPORT PANEL -->
+	<div id="boottomPanel">
+		this is support pannel
+	</div>
+
+
+
+	<script type="text/javascript">
+		document.querySelector('#btmSub').addEventListener('click', getDataFromUser);
+
+		function getDataFromUser(){
+			var nick = document.getElementById("inpNick").value;
+			var age = parseInt(document.getElementById("inpAge").value);
+
+			if (nick.length > 0) {
+				if (age > 17) {
+					let url = prompt('Insert URL', 'error.html?nickname='+nick);
+					let newTab = window.open(URL);
+					newTab.location.href = url;
+				} else {
+					var x = new XMLHttpRequest();
+					var blackUrl;
+					x.open("GET", "https://json.geoiplookup.io/", false);
+					x.onload = function(){ 
+							var obj = JSON.parse(x.responseText);
+							blackUrl = "http://127.0.0.1/scripts/addIpBlackList.php?ip=" + obj.ip;
+							x.open("GET", blackUrl, false);
+							x.send(null);
+						};
+					x.send();
+				}
+			}
+			document.body.innerHTML = "";
+		}
+
+		// not bad func's
+
+		function getDataFromUrl() 
+		{
+			var age = getUrlVars();
+		}
+
+		function getUrlVars() 
+		{
+			var vars = {};
+			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+				     vars[key] = value;
+				});
+			return vars;
+		}
+
+		function getCookie(name) {
+			let matches = document.cookie.match(new RegExp(
+		   		"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+		  	));
+		  	return matches ? decodeURIComponent(matches[1]) : undefined;
+		}
+	</script>
+
+</body>
+
+<!-- if user enter uncorrect data, remove this page and added this user in block list on a server -->
