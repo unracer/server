@@ -3,7 +3,7 @@
 // принимает только GET запросы
 // выводиться данные должны только один раз !!!
 
-	$conn=mysqli_connect("localhost","root","fucksociety", "appshop");
+	$conn=mysqli_connect("localhost","shop","fucksociety", "appshop");
 
 	if (mysqli_connect_errno($conn)) {
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -16,6 +16,7 @@
 
 	if (!isset($_GET["func"])){
 		echo json_encode("plz set args");
+		exit();
 	}
 
 	$func = $_GET["func"];
@@ -72,7 +73,7 @@
 
 		$query = "INSERT INTO chat (id_shop, title, price, about) VALUES ('$id_shop', '$title', '$price', '$about')";
 
-		if (mysql_query($conn, $query){
+		if (mysql_query($conn, $query)) {
 			echo json_encode("success");
 		} else {
 			echo json_encode("error");
@@ -177,7 +178,7 @@
 	}
 
 	function userCreate(){
-		if (!isset($_GET["nickname"] && !isset($_GET["rating"]))){
+		if (!isset($_GET["nickname"]) && !isset($_GET["rating"])){
 			if (!isset($_GET["quantityGoods"])){
 				echo "plz send args";
 				exit(); 
@@ -202,7 +203,7 @@
 	}
 
 	function userUpdate(){
-		if (!isset($_GET["nickname"] && !isset($_GET["rating"]))){
+		if (!isset($_GET["nickname"]) && !isset($_GET["rating"])){
 			if (!isset($_GET["quantityGoods"])){
 				echo "plz send args";
 				exit(); 
