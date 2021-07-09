@@ -6,28 +6,45 @@
 <!--                                 HAND                                   -->
 
 	<style type="text/css">
+		p {
+			margin-top: 0;
+			margin: 0;
+		}
+		hr {
+			margin-top: 0;
+			margin-bottom: 0;
+			color: #0ef;
+		}
+		h1 {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		ol {
+			margin-bottom: 0;
+			padding-left: 0;
+		}
+		#topStrip {
+		    background-color: #000000e6;
+		    color: #fff;
+		    width: 100%;
+		    left: 0;
+		}
 		#content {
 			position: absolute;
 			left: 0;
 			top: 0;
 			width: 100%;
 		}
-		#topPanelRawShop{
-		    background-color: #000000e6;
-		    color: #836c94;
-		    width: 100%;
-		    left: 0;
-		}
-		#mainPanelRawShop {
+		#main {
 		    background-color: #333;
-		    color: #836c94;
+		    color: #fff;
 		    width: 100%;
 		    height: 100%;
 		    left: 0;
 		}
-		#supportPanelRawShop {
+		#supportStrip {
 		    background-color:  #000;
-		    color: #836c94;
+		    color: #fff;
 		    width: 100%;
 		    left: 0;
 		    bottom: 0;
@@ -36,184 +53,198 @@
 		#categoryBtn {
 			border: 0;
 			border-radius: 10px;
-			color: #836c94;
+			background-color:black;
+			color:white;
 		}
-		#drinkBtn {
+		#goodsBtn {
 			border: 0;
 	  		border-radius: 10px;
-	  		color: #836c94;
+	  		background-color:black; 
+	  		color:white;
 		}
-		#nameTovarPanelRawShop {
-		    padding-right: 40px;
+		#category {
+		    
 		} 
-		p {
-			margin-top: 0;
+		#href {
+			position: absolute;
+			text-decoration: none; 
+			color: #FFFAFA !important;
+			margin-right: 1%;
+			right: 0;
+			top: 0;
 		}
-		hr {
-			margin-top: 0;
-			margin-bottom: 0;
+		#searchEditText {
+			text-align: center;
+			height: 1%;
 		}
-		h1 {
-			margin-top: 0;
-			margin-bottom: 0;
+		#searchEditTextBtn {
+			display: none;
 		}
-		#hueviyOL {
-			margin-bottom: 0;
+		#searchForm {
+			margin: 0;
 		}
 	</style>
 	
 <body >
 	<div id="content">
-		<div id="topPanelRawShop">
-	        <p><a href="invite.html" style="text-decoration: none; color:  #FFFAFA !important;">red and white</a></p>
-	        <input id="categoryBtn" type="submit" value="food" style="background-color:black; color:white;">
-	        <input id="categoryBtn" type="submit" value="drink" style="background-color:black; color:white;">
-	        <input id="categoryBtn" type="submit" value="instrumentation" style="background-color:black; color:white;">
-	        <hr align="cenetr" width="75%"/>
+		<div id="topStrip">
+	        <form id="searchForm" name="" action="">
+		        <input id="searchEditText" type="text/submit" placeholder="query">
+	        	<button id="searchEditTextBtn" type="submit" onclick="getGoods()" ></button>
+	        	<input id="categoryBtn" type="submit" value="food">
+		        <input id="categoryBtn" type="submit" value="dead">
+		        <input id="categoryBtn" type="submit" value="other">
+		        <p align="right"><a id="href" href="invite.html">webshop</a></p>
+			</form>
+			<hr align="center" width="100%" />
 	    </div>
 
-	<!--                                     CONTENT                                 -->
-		<div id="mainPanelRawShop">
-		    <div align="center">
-		        <h1>!!!happy new year!!!</h1>
-		        <hr align="center" width="60%" />
-		    </div>
-		    
-		    
-		    <div align="center">
-		        <h1>:buy tovar:</buy></h1>
-		    </div>
-		    
-		    
-		    <div id="tovar" align="center">
-		        <hr align="center" width="20%" />
-		        <p align="center">--badyaga 1--</p>
-		    </div>
-		    
-		    
-		    <div id="nameTovarPanelRawShop" align="center">
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Hennessy" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Praga" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Remy_Martin" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Courvoisier" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Hine" style="background-color:black; color:white;">
-		        </ol>
-		    </div>
-		    
-		    
-		    <div id="tovar">
-		        <hr align="center" width="20%" />
-		        <p align="center">--badyaga 2--</p>
-		    </div>
-		    
-		    
-		    <div id="nameTovarPanelRawShop" align="center">
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Seifried" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Sweet_Agnes_Riesling" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Inniskillin" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Sparkling_Icewine_Vidal" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Niagara_Peninsula" style="background-color:black; color:white;">
-		        </ol>
-		    </div>        
-		    
-		    <div id="tovar">
-		        <hr align="center" width="20%" />
-		        <p align="center">--badyaga 3--</p>
-		    </div>
-		    
-		    <div id="nameTovarPanelRawShop" align="center">
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Seifried" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Sweet_Agnes_Riesling" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Inniskillin" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Sparkling_Icewine_Vidal" style="background-color:black; color:white;">
-		        </ol>
-		        <ol id="hueviyOL">
-		            <input id="drinkBtn" type="submit" value="Niagara_Peninsula" style="background-color:black; color:white;">
-		        </ol>
-		    </div>
+	<!--        CONTENT          -->
+	<div id="main">	         
+	    <div id="category" align="center">
+	        <p align="center">--dead--</p>
+	    </div>
+	    
+	    <div id="nameGo" align="center">
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Hennessy">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Praga">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Remy_Martin">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Courvoisier">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Hine">
+	        </ol>
+	    </div>    
+	</div>
 
-		    <div id="tovar">
-		        <hr align="center" width="20%" />
-		        <p align="center">--badyaga 3--</p>
-		    </div>
-		    
-		    <div id="nameTovarPanelRawShop" align="center">
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Seifried" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Sweet_Agnes_Riesling" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Inniskillin" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Sparkling_Icewine_Vidal" style="background-color:black; color:white;">
-		        </ol>
-		        <ol id="hueviyOL">
-		            <input id="drinkBtn" type="submit" value="Niagara_Peninsula" style="background-color:black; color:white;">
-		        </ol>
-		    </div>
+	<div id="main">	         
+	    <div id="category" align="center">
+	        <p align="center">--dead--</p>
+	    </div>
+	    
+	    <div id="nameGo" align="center">
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Hennessy">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Praga">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Remy_Martin">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Courvoisier">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Hine">
+	        </ol>
+	    </div>    
+	</div>
 
-		    <div id="tovar">
-		        <hr align="center" width="20%" />
-		        <p align="center">--badyaga 3--</p>
-		    </div>
-		    
-		    <div id="nameTovarPanelRawShop" align="center">
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Seifried" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Sweet_Agnes_Riesling" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Inniskillin" style="background-color:black; color:white;">
-		        </ol>
-		        <ol>
-		            <input id="drinkBtn" type="submit" value="Sparkling_Icewine_Vidal" style="background-color:black; color:white;">
-		        </ol>
-		        <ol id="hueviyOL">
-		            <input id="drinkBtn" type="submit" value="Niagara_Peninsula" style="background-color:black; color:white;">
-		        </ol>
-		    </div>
+	<div id="main">	         
+	    <div id="category" align="center">
+	        <p align="center">--dead--</p>
+	    </div>
+	    
+	    <div id="nameGo" align="center">
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Hennessy">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Praga">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Remy_Martin">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Courvoisier">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Hine">
+	        </ol>
+	    </div>    
+	</div>
 
-		</div>
+	<div id="main">	         
+	    <div id="category" align="center">
+	        <p align="center">--dead--</p>
+	    </div>
+	    
+	    <div id="nameGo" align="center">
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Hennessy">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Praga">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Remy_Martin">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Courvoisier">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Hine">
+	        </ol>
+	    </div>    
+	</div>
+
+	<div id="main">	         
+	    <div id="category" align="center">
+	        <p align="center">--dead--</p>
+	    </div>
+	    
+	    <div id="nameGo" align="center">
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Hennessy">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Praga">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Remy_Martin">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Courvoisier">
+	        </ol>
+	        <ol>
+	            <input id="goodsBtn" type="submit" value="Hine">
+	        </ol>
+	    </div>    
+	</div>
 
 	<!--                                    SUPPORT                                 -->
 
-	    <div id="supportPanelRawShop">
-	    	<hr align="cenetr" width="75%"/>
-	        <p align="center">----Support----</p>
-	        <li>numper phone: +0011000000110010</li>
-	        <li>email: 01101000011101000110110101101100</li>
-	        <!-- email: 110100011000011100011110101111101001101000110010111101111101111111001011011001100100100000011101111100101101110110001111011111101101110010111101001101111111100111011111110101 -->
-	    </div>
-	</div>
+    <div id="supportStrip">
+    	<hr align="cenetr" width="100%"/>
+        <p align="center">----Support----</p>
+        <p align="center">numper phone +001100010011000000110001</p>
+        <p align="center">email 0011001000110100011000110011001100110010</p>
+    </div>
 
 </body>
+
+<script type="text/javascript">
+	// by enter run func
+	function getGoods(){
+		var x = new XMLHttpRequest();
+		var url, search;
+		search = document.getElementById("searchEditText").value;
+		url = "https://127.0.0.1/scripts/webshop.php?func=" + "searchGoods";
+		url += "&goods=" + search;
+		x.open("GET", url, false);
+		x.onload = function(){ 
+				var obj = JSON.parse(x.responseText);
+				document.getElementById("goodsBtn").value = obj.title;
+				alert(obj.title);
+			};
+		x.send();
+	}
+</script>

@@ -67,11 +67,6 @@
 
 
 <body >
-	<!-- TOP PANEL -->
-	<div id="topPanel">
-		this is top pannel
-	</div>
-
 	<!-- SIDE BAR -->
 	<div id="sideBar">
 		<h3 align="center" class='category' >category:</h3>
@@ -104,66 +99,58 @@
 			</form>
 		</div>
 	</div>
-
-	<!-- SUPPORT PANEL -->
-	<div id="boottomPanel">
-		this is support pannel
-	</div>
-
-
-
-	<script type="text/javascript">
-		document.querySelector('#btmSub').addEventListener('click', getDataFromUser);
-
-		function getDataFromUser(){
-			var nick = document.getElementById("inpNick").value;
-			var age = parseInt(document.getElementById("inpAge").value);
-
-			if (nick.length > 0) {
-				if (age > 17) {
-					let url = prompt('Insert URL', 'error.html?nickname='+nick);
-					let newTab = window.open(URL);
-					newTab.location.href = url;
-				} else {
-					var x = new XMLHttpRequest();
-					var blackUrl;
-					x.open("GET", "https://json.geoiplookup.io/", false);
-					x.onload = function(){ 
-							var obj = JSON.parse(x.responseText);
-							blackUrl = "http://127.0.0.1/scripts/addIpBlackList.php?ip=" + obj.ip;
-							x.open("GET", blackUrl, false);
-							x.send(null);
-						};
-					x.send();
-				}
-			}
-			document.body.innerHTML = "";
-		}
-
-		// not bad func's
-
-		function getDataFromUrl() 
-		{
-			var age = getUrlVars();
-		}
-
-		function getUrlVars() 
-		{
-			var vars = {};
-			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-				     vars[key] = value;
-				});
-			return vars;
-		}
-
-		function getCookie(name) {
-			let matches = document.cookie.match(new RegExp(
-		   		"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-		  	));
-		  	return matches ? decodeURIComponent(matches[1]) : undefined;
-		}
-	</script>
-
 </body>
+
+<script type="text/javascript">
+	document.querySelector('#btmSub').addEventListener('click', getDataFromUser);
+
+	function getDataFromUser(){
+		var nick = document.getElementById("inpNick").value;
+		var age = parseInt(document.getElementById("inpAge").value);
+
+		if (nick.length > 0) {
+			if (age > 17) {
+				let url = prompt('Insert URL', 'error.html?nickname='+nick);
+				let newTab = window.open(URL);
+				newTab.location.href = url;
+			} else {
+				var x = new XMLHttpRequest();
+				var blackUrl;
+				x.open("GET", "https://json.geoiplookup.io/", false);
+				x.onload = function(){ 
+						var obj = JSON.parse(x.responseText);
+						blackUrl = "http://127.0.0.1/scripts/addIpBlackList.php?ip=" + obj.ip;
+						x.open("GET", blackUrl, false);
+						x.send(null);
+					};
+				x.send();
+			}
+		}
+		document.body.innerHTML = "";
+	}
+
+	// not bad func's
+
+	function getDataFromUrl() 
+	{
+		var age = getUrlVars();
+	}
+
+	function getUrlVars() 
+	{
+		var vars = {};
+		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+			     vars[key] = value;
+			});
+		return vars;
+	}
+
+	function getCookie(name) {
+		let matches = document.cookie.match(new RegExp(
+	   		"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+	  	));
+	  	return matches ? decodeURIComponent(matches[1]) : undefined;
+	}
+</script>
 
 <!-- if user enter uncorrect data, remove this page and added this user in block list on a server -->
